@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView, FlatList } from "react-native";
+import { StyleSheet, Text, View, FlatList, SafeAreaView } from "react-native";
 
 const names = [
   "Aaran",
@@ -2753,10 +2753,32 @@ export default function App() {
   console.log(namesAsObjects[0]);
 
   function renderName({ item }) {
-    return <Text>{item.name}</Text>;
+    return (
+      <View
+        style={{
+          backgroundColor: "lightblue",
+          margin: 10,
+          padding: 10,
+          paddingTop: 20,
+          paddingBottom: 20,
+          borderRadius: 5,
+          borderBottomColor: "#999",
+          borderBottomWidth: 1,
+          shadowColor: "black",
+          shadowOpacity: 0.3,
+          shadowOffset: { height: 3 },
+        }}
+      >
+        <Text>{item.name}</Text>
+      </View>
+    );
   }
 
-  return <FlatList data={namesAsObjects} renderItem={renderName} />;
+  return (
+    <SafeAreaView>
+      <FlatList data={namesAsObjects} renderItem={renderName} />
+    </SafeAreaView>
+  );
 }
 
 const styles = StyleSheet.create({
