@@ -28,17 +28,13 @@ const names = [
 ];
 
 export default function App() {
-  function displayNames() {
-    let namesJSX = [];
-
-    for (let i = 0; i < names.length; i++) {
-      namesJSX.push(<Text>{names[i]}</Text>);
-    }
-
-    return namesJSX;
-  }
-
-  return <View style={styles.container}>{displayNames()}</View>;
+  return (
+    <View style={styles.container}>
+      {names.map((name) => (
+        <Text>{name}</Text>
+      ))}
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
