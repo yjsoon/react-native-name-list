@@ -2742,24 +2742,21 @@ const names = [
   "Zuriel",
 ];
 
-const namesAsObjects = names.map((item) => {
+const namesAsObjects = names.map((item, index) => {
   return {
     name: item,
+    id: `${index}`,
   };
 });
 
 export default function App() {
+  console.log(namesAsObjects[0]);
+
   function renderName({ item }) {
     return <Text>{item.name}</Text>;
   }
 
-  return (
-    <FlatList
-      data={namesAsObjects}
-      renderItem={renderName}
-      keyExtractor={(item) => item.name}
-    />
-  );
+  return <FlatList data={namesAsObjects} renderItem={renderName} />;
 }
 
 const styles = StyleSheet.create({
