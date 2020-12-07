@@ -2742,7 +2742,16 @@ const names = [
   "Zuriel",
 ];
 
+const namesAsObjects = names.map((item) => {
+  return {
+    name: item,
+  };
+});
+
 export default function App() {
+  console.log(names[0]);
+  console.log(namesAsObjects[0]);
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {names.map((name) => (
